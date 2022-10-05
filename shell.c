@@ -18,7 +18,7 @@ int execute(char **cmd)
 
 	if (child_pid == -1)
 	{
-		perror("Error");
+		perror("./shell");
 		return (1);
 	}
 	else if (child_pid == 0)
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 		/*TODO: Handle cases where there is no argument, only the command*/
 		if (execve(argv[1], argv, NULL) == -1)
 		{
-			perror("Error");
+			perror("./shell");
 			exit(-1);
 		}
 		return (0);
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 		if (isatty(fileno(stdin)))
 		{
 			isPipe = 1;
-			_puts("cisfun#: ");
+			_puts("#cisfun$: ");
 		}
 
 		getline(&buffer, &bufsize, stdin);
